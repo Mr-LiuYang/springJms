@@ -18,6 +18,7 @@ public class WebConfig implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext context=new AnnotationConfigWebApplicationContext();
         context.register(MvcConfiguration.class);
         context.register(ActiveMqConfig.class);
+        context.register(ThreadConfig.class);
         context.setServletContext(servletContext);
         ServletRegistration.Dynamic dispatcher=servletContext.addServlet("diapatcher",new DispatcherServlet(context));
         dispatcher.addMapping("/");
